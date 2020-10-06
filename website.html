@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<title>Compython</title>
+<meta charset="UTF-8">
+<meta name="viewpaort" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+font-family: "Playfair Display";
+letter-spacing: 5px;
+}
+</style>
+<body>
+<br/> <br/> <br/>
+<form>
+<div class="form-group" align="center">
+   <div class="g-recaptcha" data-sitekey="6LeS1qYUAAAAAGwX54xnZZweiKOsZnDiME1SqgRR" data-callback="auth" data-expired-callback="expiredRecaptchaCallback"></div>
+
+   <div class="help-block with-errors"></div>
+</div>
+</form>
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src='https://www.google.com/recaptcha/api.js'></script>
+   <script src="validator.js"></script>
+   <script src="contact.js"></script>
+
+<script>
+var url="127.0.0.1"; //global URL
+function auth(){
+window.alert("you are not a bot");
+// put here reCaptcha stuff
+// if we got in here-the reCaptcha accepted
+}
+
+function sending (var_to_send, callback){
+/*
+this is the function that every other sending/receiving function rely on
+it creates a XMLHttpRequest- sends it with the relevent data and receives data from the server
+*/
+     var request = new XMLHttpRequest();
+     request.open('POST', url, true);
+     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+     request.setRequestHeader('Accept', 'application/json');
+     request.onreadystatechange = function () {
+         if (request.readyState == 4 && this.status == 200) {
+               var serverResponse = this.responseText;
+               serverResponse=serverResponse.replace('HTTP/1.1 200 Ok\r\n\r\n','');
+               callback(serverResponse);
+         }
+     };
+     request.send(var_to_send);
+     }
+
+function run_CD(){
+// "compiling" the code in the code together box
+var a = document.getElementById("b").value;
+var constt="plane727456"; //a const for the server to let it know where to send and what to do with the data
+var to_send1 = constt.concat(a);
+var c = function(response){
+ document.getElementById('bb').value =response;
+};
+var v = sending(to_send1,c);
+}
+
+function CD_box(){
+//send the data from the code together box to the server
+var a = document.getElementById("b").value;
+var password= document.getElementById("xr").value;
+var server_constant="idangaming1232";
+var to_send1 = a.concat(server_constant);
+var to_send1 = to_send1.concat(password);
+var b= sending(to_send1);
+
+}
+
+function email_func(){
+// sending data to the server's email section
+var mail = document.getElementById("xrr").value; //mail to send
+var num = document.getElementById("xr").value; //number to send
+server_const = "frommailsection";
+var to_send = mail.concat(server_const);
+var to_send = to_send+""+num;
+
+var c=function(response){
+ var aaa="pass";
+};
+var v = sending(to_send,c);
+}
+
+function upadates() {
+// updates all clients with the code together relevent data- updates every second
+var x = "have_update?"; //server constant also
+var a = document.getElementById("xr").value;
+var to_send1 = x.concat(a);
+var c=function(response){
+ document.getElementById('b').value = response;
+};
+var v = sending(to_send1,c);
+}
+setInterval(upadates, 1000);
+
+
+function run_c(){
+// "conpiling" the code in the try box
+var a = document.getElementById("a").value;
+var constt="robinhood";
+var to_send1 = constt.concat(a);
+//var url="127.0.0.1";
+var c=function(response){
+ document.getElementById('myArea').value = response;
+};
+var v = sending(to_send1,c);
+}
+</script>
+
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+<div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+<a href="#home" class="w3-bar-item w3-button">Compython</a>
+<!-- Right-sided navbar links. Hide them on small screens -->
+<div class="w3-right w3-hide-small">
+<a href="#about" class="w3-bar-item w3-button">About</a>
+<a href="#Learning" class="w3-bar-item w3-button">Learn</a>
+<a href="#Code Together" class="w3-bar-item w3-button">Code Together</a>
+</div>
+</div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+<div class="w3-display-bottomleft w3-padding-large w3-opacity">
+<h1 class="w3-xxlarge"></h1>
+</div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+<!-- About Section -->
+<div class="w3-row w3-padding-64" id="about">
+
+
+<div class="w3-center" align="center">
+<h1 class="w3-center" >About Compython</h1><br>
+<h5 class="w3-center">Made by Idan Israel Rotbart</h5>
+<p class="w3-large">in the Compython you will be able to learn python and program python projects with your team, without python interpreter on your computer!</p>
+</div>
+</div>
+
+<hr>
+
+<!-- Learning Section -->
+<p class="w3-row w3-padding-64" id="Learning">
+   <h1 class="w3-center">Learning area</h1><br>
+
+
+<div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+<div class="w3-left w3-hide-small">
+<a href="#variables types" class="w3-bar-item w3-button">Variables types  </a>
+<a href="#print" class="w3-bar-item w3-button">Print section</a>
+<a href="#if" class="w3-bar-item w3-button">If section</a>
+<a href="#loop" class="w3-bar-item w3-button">Loops section</a>
+<a href="#list" class="w3-bar-item w3-button">Lists section</a>
+<a href="#try" class="w3-bar-item w3-button">Try it yourself!</a>
+</div>
+</div>
+
+<div class="w3-row w3-padding-64" id="variables types">
+<h4>Variable Types</h4>
+  <p class="w3-text-grey">In this tutorial we will cover three variable types:</p> <br>
+  <p class="w3-text-grey">-Int: is used for whole numbers </p>
+  <p class="w3-text-grey">-Float: is used for fractions </p>
+  <p class="w3-text-grey" >-String: is used for text</p>
+   <p class="w3-text-grey" >-bool: is used for True or False values</p>
+   <p class="w3-text-grey" > <h6> Examples for declaring variables in python:  </h6> </p>
+<textarea readonly rows="5" cols="41" style="overflow:auto;resize:none">
+a = 7  # a's type is int (# means a comment in python)
+a = 7.1  # a's type is float
+a = "hello"  # a's type is string
+a = True  # a's type is bool
+   </textarea>
+</div>
+<div class="w3-row w3-padding-64" id="print">
+   <h4>Print section</h4>
+
+       <p class="w3-text-grey" >in order to print values to the screen, we just need to type "print data". </p>
+       <p class="w3-text-grey" >data=whatever we want to print- it can be a variable or just a number or a string </p>
+       <p class="w3-text-grey" >try to type "print 5" in the try box below, and run this. after that try other stuff to understand how it works </p>
+
+
+       <button class="w3-button w3-light-grey w3-section"><a href="#try">press here for the try box</a></button>
+
+
+<div class="w3-row w3-padding-64" id="if">
+   <h4>If section</h4>
+       <p class="w3-text-grey" >in order to check stuff- we need to use if statement. </p>
+       <p class="w3-text-grey" > <h6> Example: </h6> </p>
+<textarea readonly rows="6" cols="41" style="overflow:auto;resize:none">
+a=6
+if a==7:
+   print "a equals 7"
+else:
+   print "a don't equals 7"
+</textarea>
+       <p class="w3-text-grey" >explanation: </p>
+       <p class="w3-text-grey" >If a=7 (in if statements we need to write = as ==)- print "a equals 7" </p>
+       <p class="w3-text-grey" >If a is not 7(else)- print "a don't equals 7" </p>
+</div>
+
+<div class="w3-row w3-padding-64" id="loop">
+   <h4>Loops section</h4>
+       <p class="w3-text-grey" >Imagine a case when we need to go over a large amount of data</p>
+       <p class="w3-text-grey" >Or maybe we want to do the same thing over and over?</p>
+       <p class="w3-text-grey" >For this we need loops!</p>
+       <p class="w3-text-grey" >In this tutorial we will be cover the while loop!</p>
+       <p class="w3-text-grey" > <h6> Example: </h6> </p>
+<textarea readonly rows="6" cols="41" style="overflow:auto;resize:none">
+a=0
+while a<10:
+   print "a in a 10 yet, it is: ", a
+   a+=1 # means a=a+1
+print "a is a 10 now!"
+</textarea>
+       <p class="w3-text-grey" >explanation: </p>
+       <p class="w3-text-grey" >just if a<10 is True, we will enter the loop</p>
+       <p class="w3-text-grey" >Be careful! we need to increase a in every iteration- otherwise we'll have an endless loop- which we don't want </p>
+       <p class="w3-text-grey" >If the statement is True, we will enter the loop- in this case we will enter 10 times. </p>
+       <p class="w3-text-grey" >Try to run this code down below in the box! </p>
+</div>
+
+
+
+<div class="w3-row w3-padding-64" id="list">
+   <h4>Lists section</h4>
+       <p class="w3-text-grey" >List is a data structure- which every member in it can be in another type. </p>
+       <p class="w3-text-grey" >for example, that's a list: name=["member one", 3,4,True] </p>
+       <p class="w3-text-grey" > <h6> Example for printing all list members: </h6> </p>
+<textarea readonly rows="6" cols="41" style="overflow:auto;resize:none">
+lst=[1,2,34,4]
+length = len(lst)
+a=0
+while a < length:
+   print lst[a]
+   a+=1
+</textarea>
+       <p class="w3-text-grey" >explanation: </p>
+       <p class="w3-text-grey" >as long as a in lower than the list's length, we want to print the member in a's place.</p>
+
+</div>
+
+
+<div class="w3-row w3-padding-64" id="try">
+<h4 >try it yourself!</h4>
+<textarea rows="4" cols="50" id="a" placeholder="insert code here"></textarea>
+<textarea rows="4" cols="50" id="myArea" placeholder="compiled data will appear here"></textarea>
+<p><button class="w3-button w3-light-grey w3-section" type="submit" onclick="run_c()">RUN CODE</button></p>
+</div>
+
+
+
+
+
+<hr>
+<div class="w3-col l6 w3-padding-large">
+<!-- code together Section -->
+<div class="w3-container w3-padding-64" id="Code Together">
+<h1>Code Together</h1><br>
+<p class="w3-text-blue-grey w3-large"><b>Here you will be able to code with your friends</b></p>
+<p><input class="w3-input w3-padding-16" type="text" placeholder="Password" id="xr" ></p>  <!-- comment-->
+<p><input class="w3-input w3-padding-16" type="text" placeholder="send the password to this email" id="xrr" ></p>
+
+<p><button class="w3-button w3-light-grey w3-section" type="submit" onclick="email_func()">SEND INVITE</button></p>
+
+<textarea oninput="CD_box()" rows="20" cols="60" id="b" placeholder="insert code here"></textarea>
+<textarea rows="5" cols="60" id="bb" placeholder="output"></textarea>
+<p><button class="w3-button w3-light-grey w3-section" type="submit" onclick="run_CD()">RUN CODE</button></p>
+
+</div>
+
+<!-- End page content -->
+</div>
+
+
+</body>
+</html>
+
+
