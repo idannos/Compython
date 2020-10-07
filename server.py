@@ -137,7 +137,7 @@ while True:
                         f.close()
                     if data == "/favicon.ico":
                         try:
-                            with open("plane.jpg", "rb") as image_file:
+                            with open("favicon.jpg", "rb") as image_file:
                                 a=image_file.read()
                                 current_socket.send(a)
                                 image_file.close()
